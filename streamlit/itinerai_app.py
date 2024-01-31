@@ -14,7 +14,7 @@ st.set_page_config(page_title="Itiner-AI Travel App")
 ss = st.session_state
 if 'debug' not in ss: ss['debug']={}
 
-image_path = Path(__file__).parents[1] / 'streamlit/gallery/logo_edit.png'
+image_path = str(Path(__file__).parents[1] / 'streamlit/gallery/logo_edit.png')
 
 add_logo(image_path, height=300)
 

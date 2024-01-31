@@ -13,7 +13,7 @@ st.set_page_config(page_title="Itiner-AI Travel App")
 ss = st.session_state
 if 'debug' not in ss: ss['debug']={}
 
-add_logo('gallery/logo2.jpg', height=300)
+add_logo('gallery/logo_edit.png', height=300)
 
 ###### DEFINE FUNCTIONS #######
 

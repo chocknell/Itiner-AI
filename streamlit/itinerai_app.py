@@ -7,13 +7,16 @@ from openai import OpenAI
 from streamlit_extras.app_logo import add_logo
 from stqdm import stqdm
 from time import sleep
+from pathlib import Path
 
 
 st.set_page_config(page_title="Itiner-AI Travel App")
 ss = st.session_state
 if 'debug' not in ss: ss['debug']={}
 
-add_logo('gallery/logo_edit.png', height=300)
+image_path = Path(__file__).parents[1] / 'streamlit/gallery/logo_edit.png'
+
+add_logo(image_path, height=300)
 
 ###### DEFINE FUNCTIONS #######
 
@@ -35,7 +38,7 @@ def ai_api():
 # Define Sidebar
 
 with st.sidebar:
-    st.image('gallery/logo_edit.png')
+    st.image(image_path)
     api_key = ai_api()
     st.markdown('Input the details of your trip below:')
 

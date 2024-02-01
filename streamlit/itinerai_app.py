@@ -48,7 +48,7 @@ with st.sidebar:
         likes = st.text_input('Enter a list of likes:', 'sports, history and multi-cultural cuisine')
         dislikes = st.text_input('Enter a list of dislikes:', 'too much walking')
         specific = st.text_input('Is there anything specific you would like to include?:', 'Alcatraz')
-        submit = st.form_submit_button()
+        submit = st.form_submit_button('Generate Itinerary')
 
 
 # define tabs
@@ -58,10 +58,10 @@ t1,t2 = st.tabs(['Detailed Itinerary', 'Concise Itinerary'])
 
 with t1:
     placeholder1 = st.empty()
-    placeholder1.markdown('## Welcome to Itiner-AI! \n Fill in the information on the left to generate a personalized itinerary for your next trip with the help of Generative AI. Use the tabs above to find the right layout for you, as well as updating the output for your perfect holiday.')
+    placeholder1.markdown("## Welcome to Itiner-AI! \n Fill in the information on the left to generate a personalized itinerary for your next trip with the help of Generative AI. Use the tabs above to find the right layout for you, and watch this space for future updates! \n \n")
 with t2:
     placeholder2 = st.empty()
-    placeholder2.markdown('## Welcome to Itiner-AI! \n Fill in the information on the left to generate a personalized itinerary for your next trip with the help of Generative AI. Use the tabs above to find the right layout for you, as well as updating the output for your perfect holiday.')
+    placeholder2.markdown("## Welcome to Itiner-AI! \n Fill in the information on the left to generate a personalized itinerary for your next trip with the help of Generative AI. Use the tabs above to find the right layout for you, and watch this space for future updates! \n \n")
 
 # cache data from function
 #@st.cache_data
@@ -110,9 +110,11 @@ def itiner_ai(duration = duration, destination = destination, likes = likes, dis
 
 # submit input variables for itinerary generation    
 if submit:
-
     # run function to generate itineraries    
-    messages, full, basic = itiner_ai()
+    with st.spinner('Be patient while your itinerary is created - it will be worth the wait!'):
+        messages, full, basic = itiner_ai()
+        time.sleep(5)
+    st.success('Done!')
 
     with t1:
         placeholder1.empty()

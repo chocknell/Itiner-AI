@@ -8,6 +8,7 @@ from streamlit_extras.app_logo import add_logo
 from stqdm import stqdm
 from time import sleep
 from pathlib import Path
+import time
 
 
 st.set_page_config(page_title="Itiner-AI Travel App")
